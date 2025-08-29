@@ -1,9 +1,39 @@
 const db = require('../config/config.js');
 const historialQueries = {
-  getAllHistorialByUserId: "SELECT historial.*, diagnostico.nombre AS diagnostico_nombre, usuario.nombre AS usuario_nombre, diagnostico.descripcion, diagnostico.recomendaciones, diagnostico.nivel_gravedad FROM historial inner join diagnostico on historial.id_diagnostico = diagnostico.id inner join usuario on historial.id_usuario = usuario.id WHERE usuario.id = ? ORDER BY historial.fecha DESC",
-  getLastHistorialByUserId: "SELECT historial.*, diagnostico.nombre AS diagnostico_nombre, usuario.nombre AS usuario_nombre, diagnostico.descripcion, diagnostico.recomendaciones, diagnostico.nivel_gravedad FROM historial inner join diagnostico on historial.id_diagnostico = diagnostico.id inner join usuario on historial.id_usuario = usuario.id WHERE usuario.id = ? ORDER BY historial.fecha DESC LIMIT 1",
-  create: "INSERT INTO historial (ID_USUARIO, FECHA) VALUES (?, ?)",
-  update: "UPDATE historial SET ID_USUARIO = ?, FECHA = ?, ID_DIAGNOSTICO = ? WHERE ID = ?",
+  getAllHistorialByUserId: `SELECT 
+                            historial.*, 
+                            diagnostico.nombre AS diagnostico_nombre, 
+                            usuario.nombre AS usuario_nombre, 
+                            diagnostico.descripcion, 
+                            diagnostico.recomendaciones, 
+                            diagnostico.nivel_gravedad,
+                            GROUP_CONCAT(CONCAT('Pregunta: ', pregunta.pregunta, ' | Respuesta: ', hecho.respuesta) SEPARATOR ' || ') AS preguntas_respuestas
+                            FROM historial
+                            INNER JOIN diagnostico ON historial.id_diagnostico = diagnostico.id
+                            INNER JOIN usuario ON historial.id_usuario = usuario.id
+                            INNER JOIN hecho ON historial.id = hecho.id_historial
+                            INNER JOIN pregunta ON hecho.id_pregunta = pregunta.id
+                            WHERE usuario.id = ?
+                            GROUP BY historial.id
+                            ORDER BY historial.fecha DESC`,
+  getLastHistorialByUserId: `SELECT 
+                            historial.*, 
+                            diagnostico.nombre AS diagnostico_nombre, 
+                            usuario.nombre AS usuario_nombre, 
+                            diagnostico.descripcion, 
+                            diagnostico.recomendaciones, 
+                            diagnostico.nivel_gravedad,
+                            GROUP_CONCAT(CONCAT('Pregunta: ', pregunta.pregunta, ' | Respuesta: ', hecho.respuesta) SEPARATOR ' || ') AS preguntas_respuestas
+                            FROM historial
+                            INNER JOIN diagnostico ON historial.id_diagnostico = diagnostico.id
+                            INNER JOIN usuario ON historial.id_usuario = usuario.id
+                            INNER JOIN hecho ON historial.id = hecho.id_historial
+                            INNER JOIN pregunta ON hecho.id_pregunta = pregunta.id
+                            WHERE usuario.id = ?
+                            GROUP BY historial.id
+                            ORDER BY historial.fecha DESC LIMIT 1`,
+  create: "INSERT INTO historial (ID_USUARIO, FECHA) VALUES (?, ?)",
+  update: "UPDATE historial SET ID_USUARIO = ?, FECHA = ?, ID_DIAGNOSTICO = ? WHERE ID = ?",
 }
 
 class HistorialModel {

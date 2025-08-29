@@ -1,5 +1,6 @@
 const Historial = require("../models/historialModel.js");
 const Hecho = require("../models/hechoModel.js");
+const Diagnostico = require("../models/DiagnosticoModel.js");
 const { Rules } = require("../models/rulesModel.js");
 
 const enviarRespuesta = async (req, res) => {
@@ -71,6 +72,11 @@ const fechaActual = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
       console.log("Diagnóstico obtenido:", diagnosticoId);
     }
 
+    const diagnostico = await Diagnostico.getDiagnosticoById(diagnosticoId);
+    if (!diagnostico) {
+        return res.status(404).json({ error: "No se pudo determinar el diagnóstico." });
+    }
+
     // Paso 4: Actualizar el historial con el ID del diagnóstico
     // Los errores son manejados por el bloque 'catch'
     await Historial.updateHistorial(historialId, {
@@ -83,7 +89,8 @@ const fechaActual = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     return res.status(201).json({
       message: "Consulta y diagnóstico procesados exitosamente.",
       historialId: historialId,
-      diagnosticoId: diagnosticoId
+      diagnosticoId: diagnosticoId,
+      diagnostico: diagnostico
     });
 
   } catch (err) {

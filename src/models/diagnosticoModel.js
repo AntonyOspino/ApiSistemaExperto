@@ -1,19 +1,18 @@
 const db = require('../config/config.js');
 const diagnosticoQueries = {
-    getDiagnosticoById: "SELECT * FROM diagnostico WHERE id = ?"
+    getDiagnosticoById: "SELECT nombre, descripcion, recomendaciones, nivel_gravedad FROM diagnostico WHERE id = ?",
+    getAllDiagnosticos: "SELECT nombre, descripcion, recomendaciones, nivel_gravedad FROM diagnostico"
 }
 
 class DiagnosticoModel {
-    getDiagnosticoById(id, callback) {
-        const query = diagnosticoQueries.getDiagnosticoById;
-        db.query(query, [id], (error, results) => {
-            if (error) {
-                callback(error, null);
-            } else {
-                const diagnostico = results[0] ? new DiagnosticoModel(results[0]) : null;
-                callback(null, diagnostico);
-            }
-        });
+    async getDiagnosticoById(id) {
+        const [rows] = await db.query(diagnosticoQueries.getDiagnosticoById, [id]);
+        return rows ? rows[0] : [];
+    }
+
+    async getAllDiagnosticos() {
+        const [rows] = await db.query(diagnosticoQueries.getAllDiagnosticos);
+        return rows || [];
     }
 }
 
