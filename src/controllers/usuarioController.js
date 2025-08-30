@@ -14,8 +14,8 @@ module.exports = {
 
     getUsuarioById: async (req, res) => {
         try {
-            const { id } = req.params;
-            const usuario = await getUsuarioById(id);
+            const { identificacion } = req.params;
+            const usuario = await getUsuarioById(identificacion);
             if (!usuario) {
                 return res.status(404).json({ error: "Usuario no encontrado" });
             }
@@ -39,9 +39,9 @@ module.exports = {
 
     updateUsuario: async (req, res) => {
         try {
-            const { id } = req.params;
+            const { identificacion } = req.params;
             const updatedUser = req.body;
-            const affectedRows = await updateUsuario(id, updatedUser);
+            const affectedRows = await updateUsuario(identificacion, updatedUser);
             if (affectedRows === 0) {
                 return res.status(404).json({ error: "Usuario no encontrado" });
             }
@@ -54,8 +54,8 @@ module.exports = {
 
     deleteUsuario: async (req, res) => {
         try {
-            const { id } = req.params;
-            const affectedRows = await deleteUsuario(id);
+            const { identificacion } = req.params;
+            const affectedRows = await deleteUsuario(identificacion);
             if (affectedRows === 0) {
                 return res.status(404).json({ error: "Usuario no encontrado" });
             }

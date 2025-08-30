@@ -1,37 +1,61 @@
 const db = require('../config/config.js');
 const historialQueries = {
-  getAllHistorialByUserId: `SELECT 
-                            historial.*, 
-                            diagnostico.nombre AS diagnostico_nombre, 
-                            usuario.nombre AS usuario_nombre, 
-                            diagnostico.descripcion, 
-                            diagnostico.recomendaciones, 
-                            diagnostico.nivel_gravedad,
-                            GROUP_CONCAT(CONCAT('Pregunta: ', pregunta.pregunta, ' | Respuesta: ', hecho.respuesta) SEPARATOR ' || ') AS preguntas_respuestas
-                            FROM historial
-                            INNER JOIN diagnostico ON historial.id_diagnostico = diagnostico.id
-                            INNER JOIN usuario ON historial.id_usuario = usuario.id
-                            INNER JOIN hecho ON historial.id = hecho.id_historial
-                            INNER JOIN pregunta ON hecho.id_pregunta = pregunta.id
-                            WHERE usuario.id = ?
-                            GROUP BY historial.id
-                            ORDER BY historial.fecha DESC`,
+      getAllHistorialByUserId: `SELECT 
+                                historial.id AS id,
+                                historial.id_usuario AS id_usuario,
+                                historial.id_diagnostico AS id_diagnostico,
+                                historial.fecha AS fecha,
+                                usuario.identificacion AS usuario_identificacion,
+                                usuario.nombre AS usuario_nombre,
+                                JSON_OBJECT(
+                                  'nombre', diagnostico.nombre,
+                                  'descripcion', diagnostico.descripcion,
+                                  'recomendaciones', diagnostico.recomendaciones,
+                                  'nivel_gravedad', diagnostico.nivel_gravedad
+                                ) AS diagnostico,
+                                JSON_ARRAYAGG(
+                                  JSON_OBJECT(
+                                    'pregunta', pregunta.pregunta,
+                                    'respuesta', hecho.respuesta
+                                  )
+                                ) AS preguntas_respuestas
+                                FROM historial
+                                INNER JOIN diagnostico ON historial.id_diagnostico = diagnostico.id
+                                INNER JOIN usuario ON historial.id_usuario = usuario.id
+                                INNER JOIN hecho ON historial.id = hecho.id_historial
+                                INNER JOIN pregunta ON hecho.id_pregunta = pregunta.id
+                                WHERE usuario.identificacion = ?
+                                GROUP BY historial.id
+                                ORDER BY historial.fecha DESC;
+`,
   getLastHistorialByUserId: `SELECT 
-                            historial.*, 
-                            diagnostico.nombre AS diagnostico_nombre, 
-                            usuario.nombre AS usuario_nombre, 
-                            diagnostico.descripcion, 
-                            diagnostico.recomendaciones, 
-                            diagnostico.nivel_gravedad,
-                            GROUP_CONCAT(CONCAT('Pregunta: ', pregunta.pregunta, ' | Respuesta: ', hecho.respuesta) SEPARATOR ' || ') AS preguntas_respuestas
+                            historial.id AS id,
+                            historial.id_usuario AS id_usuario,
+                            historial.id_diagnostico AS id_diagnostico,
+                            historial.fecha AS fecha,
+                            usuario.identificacion AS usuario_identificacion,
+                            usuario.nombre AS usuario_nombre,
+                            JSON_OBJECT(
+                              'nombre', diagnostico.nombre,
+                              'descripcion', diagnostico.descripcion,
+                              'recomendaciones', diagnostico.recomendaciones,
+                              'nivel_gravedad', diagnostico.nivel_gravedad
+                            ) AS diagnostico,
+                            JSON_ARRAYAGG(
+                              JSON_OBJECT(
+                                'pregunta', pregunta.pregunta,
+                                'respuesta', hecho.respuesta
+                              )
+                            ) AS preguntas_respuestas
                             FROM historial
                             INNER JOIN diagnostico ON historial.id_diagnostico = diagnostico.id
                             INNER JOIN usuario ON historial.id_usuario = usuario.id
                             INNER JOIN hecho ON historial.id = hecho.id_historial
                             INNER JOIN pregunta ON hecho.id_pregunta = pregunta.id
-                            WHERE usuario.id = ?
+                            WHERE usuario.identificacion = ?
                             GROUP BY historial.id
-                            ORDER BY historial.fecha DESC LIMIT 1`,
+                            ORDER BY historial.fecha DESC
+                            LIMIT 1;`,
   create: "INSERT INTO historial (ID_USUARIO, FECHA) VALUES (?, ?)",
   update: "UPDATE historial SET ID_USUARIO = ?, FECHA = ?, ID_DIAGNOSTICO = ? WHERE ID = ?",
 }

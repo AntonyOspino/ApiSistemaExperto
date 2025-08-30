@@ -1,16 +1,23 @@
 const Historial = require("../models/historialModel.js");
 const Hecho = require("../models/hechoModel.js");
 const Diagnostico = require("../models/DiagnosticoModel.js");
+const {getUsuarioById} = require('../models/usuarioModel.js');
 const { Rules } = require("../models/rulesModel.js");
 
 const enviarRespuesta = async (req, res) => {
-  const { ID_USUARIO, respuestas } = req.body;
+  const { identificacion, respuestas } = req.body;
 
   if (!respuestas || !Array.isArray(respuestas)) {
     return res.status(400).json({ error: "Las respuestas deben ser un array." });
   }
 
   try {
+    const {ID_USUARIO} = await getUsuarioById(identificacion);
+    
+    if (!ID_USUARIO || ID_USUARIO <= 0) {
+        return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
 const fecha = new Date();
 
 const options = {
@@ -37,6 +44,7 @@ const second = partes.find(part => part.type === 'second').value;
 const fechaActual = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     // Paso 1: Crear historial y obtener su ID
     // El error de creación es manejado por el bloque 'catch'
+
     const historialId = await Historial.createHistorial({ id_usuario: ID_USUARIO, fecha: fechaActual });
 
     // Inicializar los hechos (facts) para el motor de reglas
