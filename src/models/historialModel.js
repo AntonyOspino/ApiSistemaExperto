@@ -7,6 +7,9 @@ const historialQueries = {
                                 historial.fecha AS fecha,
                                 usuario.identificacion AS usuario_identificacion,
                                 usuario.nombre AS usuario_nombre,
+                                usuario.apellido AS usuario_apellido,
+                                usuario.edad AS usuario_edad,
+                                usuario.sexo AS usuario_sexo,
                                 JSON_OBJECT(
                                   'nombre', diagnostico.nombre,
                                   'descripcion', diagnostico.descripcion,
@@ -35,6 +38,9 @@ const historialQueries = {
                             historial.fecha AS fecha,
                             usuario.identificacion AS usuario_identificacion,
                             usuario.nombre AS usuario_nombre,
+                            usuario.apellido AS usuario_apellido,
+                            usuario.edad AS usuario_edad,
+                            usuario.sexo AS usuario_sexo,
                             JSON_OBJECT(
                               'nombre', diagnostico.nombre,
                               'descripcion', diagnostico.descripcion,

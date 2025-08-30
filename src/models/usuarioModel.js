@@ -1,12 +1,12 @@
 const db = require("../config/config.js");
 
 const userQueries = {
-    selectAll: "select * from usuario",
-    selectById: "select ID as ID_USUARIO from usuario where identificacion = ?",
+    selectAll: "select ID as id, NOMBRE as nombre, APELLIDO as apellido, IDENTIFICACION as identificacion, EDAD as edad, SEXO as sexo from usuario",
+    selectById: "select ID as id, NOMBRE as nombre, APELLIDO as apellido, IDENTIFICACION as identificacion, EDAD as edad, SEXO as sexo from usuario where identificacion = ?",
     insert: "insert into usuario (nombre, apellido, identificacion, edad, sexo) values (?, ?, ?, ?, ?)",
     update: "update usuario set nombre = ?, apellido = ?, identificacion = ?, edad = ?, sexo = ? where identificacion = ?",
     delete: "delete from usuario where identificacion = ?"
-}
+};
 
 class Usuario {
     async getUsuarios() {

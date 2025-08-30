@@ -6,7 +6,10 @@ module.exports = {
         try {
             const userId = req.params.id;
             const historial = await getAllHistorialByUserId(userId);
-            res.json(historial);
+            if (!historial || historial.length === 0) {
+                return res.status(404).json({ message: "Historial no encontrado para este usuario." });
+            }
+            res.json({message: "Historial encontrado para el usuario identificado con " + userId + ".", data: historial});
         } catch (err) {
             console.error("Error al obtener el historial:", err);
             res.status(500).json({ error: "Error al obtener el historial." });
@@ -17,10 +20,10 @@ module.exports = {
         try {
             const userId = req.params.id;
             const historial = await getLastHistorialByUserId(userId);
-            if (!historial) {
+            if (!historial || historial.length === 0) {
                 return res.status(404).json({ message: "Historial no encontrado para este usuario." });
             }
-            res.json(historial);
+            res.json({message: "Último historial encontrado para el usuario identificado con: " + userId + ".", data: historial});
         } catch (err) {
             console.error("Error al obtener el último historial:", err);
             res.status(500).json({ error: "Error al obtener el último historial." });

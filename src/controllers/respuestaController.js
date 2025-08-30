@@ -5,18 +5,13 @@ const {getUsuarioById} = require('../models/usuarioModel.js');
 const { Rules } = require("../models/rulesModel.js");
 
 const enviarRespuesta = async (req, res) => {
-  const { identificacion, respuestas } = req.body;
+  const { id_usuario, respuestas } = req.body;
 
   if (!respuestas || !Array.isArray(respuestas)) {
     return res.status(400).json({ error: "Las respuestas deben ser un array." });
   }
 
   try {
-    const {ID_USUARIO} = await getUsuarioById(identificacion);
-    
-    if (!ID_USUARIO || ID_USUARIO <= 0) {
-        return res.status(404).json({ error: "Usuario no encontrado" });
-    }
 
 const fecha = new Date();
 
@@ -45,7 +40,7 @@ const fechaActual = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     // Paso 1: Crear historial y obtener su ID
     // El error de creación es manejado por el bloque 'catch'
 
-    const historialId = await Historial.createHistorial({ id_usuario: ID_USUARIO, fecha: fechaActual });
+    const historialId = await Historial.createHistorial({ id_usuario: id_usuario, fecha: fechaActual });
 
     // Inicializar los hechos (facts) para el motor de reglas
     const facts = {
@@ -88,7 +83,7 @@ const fechaActual = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     // Paso 4: Actualizar el historial con el ID del diagnóstico
     // Los errores son manejados por el bloque 'catch'
     await Historial.updateHistorial(historialId, {
-      id_usuario: ID_USUARIO,
+      id_usuario: id_usuario,
       fecha: fechaActual,
       id_diagnostico: diagnosticoId,
     });
