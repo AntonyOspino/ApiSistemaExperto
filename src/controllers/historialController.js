@@ -1,4 +1,4 @@
-const {getAllHistorialByUserId, getLastHistorialByUserId} = require('../models/historialModel.js');
+const {getAllHistorialByUserId, getLastHistorialByUserId, getAllHistorialFromUsers} = require('../models/historialModel.js');
 
 module.exports = {
 
@@ -27,6 +27,19 @@ module.exports = {
         } catch (err) {
             console.error("Error al obtener el último historial:", err);
             res.status(500).json({ error: "Error al obtener el último historial." });
+        }
+    },
+
+    getAllHistorialFromUsers: async (req, res) => {
+        try {
+            const historial = await getAllHistorialFromUsers();
+            if (!historial || historial.length === 0) {
+                return res.status(404).json({ message: "No se encontró historial para ningún usuario." });
+            }
+            res.json({message: "Historial encontrado para todos los usuarios.", data: historial});
+        } catch (err) {
+            console.error("Error al obtener el historial de todos los usuarios:", err);
+            res.status(500).json({ error: "Error al obtener el historial de todos los usuarios." });
         }
     }
 }
