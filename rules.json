@@ -1,0 +1,546 @@
+[
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 1
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 2
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 3
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 4
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 5
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 6
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 7
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 8
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 9
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 10
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 11
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 12
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 13
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 14
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 15
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": false },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 16
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 17
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 18
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 19
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 20
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 21
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 22
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 23
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": false },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 24
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 25
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 26
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 27
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": false },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 28
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 29
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": false },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 30
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": false }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 31
+      }
+    }
+  },
+  {
+    "conditions": {
+      "all": [
+        { "fact": "1", "operator": "equal", "value": true },
+        { "fact": "2", "operator": "equal", "value": true },
+        { "fact": "3", "operator": "equal", "value": true },
+        { "fact": "4", "operator": "equal", "value": true },
+        { "fact": "5", "operator": "equal", "value": true }
+      ]
+    },
+    "event": {
+      "type": "diagnostico",
+      "params": {
+        "id_diagnostico": 32
+      }
+    }
+  }
+]
