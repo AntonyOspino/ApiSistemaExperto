@@ -39,6 +39,15 @@ class Usuario {
         const [rows] = await db.query(userQueries.selectById, params);
         return rows[0];
     }
+
+    async findOrCreateUser(usuario) {
+        let user = await this.getUsuarioById(usuario.identificacion);
+        if (!user) {
+            user = await this.createUsuario(usuario);
+        }
+        return user;
+    }
+
 }
 
 module.exports = new Usuario();
