@@ -43,7 +43,10 @@ class Usuario {
     async findOrCreateUser(usuario) {
         let user = await this.getUsuarioById(usuario.identificacion);
         if (!user) {
-            user = await this.createUsuario(usuario);
+            const insertId = await this.createUsuario(usuario);
+        
+            // DEVUELVE UN OBJETO CONSISTENTE
+            return { id: insertId };
         }
         return user;
     }
